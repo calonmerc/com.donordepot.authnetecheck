@@ -1,4 +1,7 @@
 <?php
+global $civicrm_root;
+
+require_once $civicrm_root.'/'.'CRM/Core/Payment.php';
 /*
  +--------------------------------------------------------------------+
  | CiviCRM version 4.7                                                |
@@ -36,7 +39,7 @@ use Civi\Payment\Exception\PaymentProcessorException;
  * It is the parent class for payment processors. It also holds some IPN related functions
  * that need to be moved. In particular handlePaymentMethod should be moved to a factory class.
  */
-abstract class CRM_Core_Payment {
+class com_donordepot_authnetecheck extends CRM_Core_Payment {
 
   /**
    * Component - ie. event or contribute.
@@ -1088,7 +1091,9 @@ abstract class CRM_Core_Payment {
    * @return string
    *   the error message if any
    */
-  abstract protected function checkConfig();
+  protected function checkConfig() {
+	  return null;
+  }
 
   /**
    * Redirect for paypal.
